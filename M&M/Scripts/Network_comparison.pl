@@ -37,13 +37,19 @@ my $sndNet = shift;
 my $var = shift;
 my $bsub = ". /opt/lsf/conf/profile.lsf";
 my $Rc;
-
+#Runs the extractor to generate the files out of the .csv table that cytoscape produces
+my $out1 = "Extraction.out";
+my $Ra = "bsub -o $out1 Rscript /biodata/dep_psl/grp_kemen/programs/perl_scripts/Alfredo/R_dependencies/Extractor.R $fstNet $sndNet";
+my $Run = system("$bsub && $Ra") == 0 or die "Can't extract the networks";
+sleep 1 until -e $out1;
+my $fstNet1 = "minus_edge_table_div.txt";
+my $sndNet1 = "plus_edge_table_div.txt";
 #Calls R function in order to make a distance matrix based only on one value from the edgetable
 my $out = "matrix_maker.out";
 if ($var eq "WEIGHT") {
-    $Rc = "bsub -o $out Rscript /biodata/dep_psl/grp_kemen/programs/perl_scripts/Alfredo/R_dependencies/matrix_maker_weight.R $fstNetName $fstNet $sndNetName $sndNet";
+    $Rc = "bsub -o $out Rscript /biodata/dep_psl/grp_kemen/programs/perl_scripts/Alfredo/R_dependencies/matrix_maker_weight.R $fstNetName $fstNet1 $sndNetName $sndNet1";
 }elsif($var eq "EDGEBET"){
-    $Rc = "bsub -o $out Rscript /biodata/dep_psl/grp_kemen/programs/perl_scripts/Alfredo/R_dependencies/matrix_maker.R $fstNetName $fstNet $sndNetName $sndNet";
+    $Rc = "bsub -o $out Rscript /biodata/dep_psl/grp_kemen/programs/perl_scripts/Alfredo/R_dependencies/matrix_maker.R $fstNetName $fstNet1 $sndNetName $sndNet1";
 }
     #execute it
 my $Run = system("$bsub && $Rc") == 0 or die "Can't calculate the matrices";
