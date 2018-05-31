@@ -1,4 +1,10 @@
 Video Captions:
-Compartment is the most discriminat variable in Principal Cooordinate Analysis (PCoA), Biome and Country effect are not clearly identifiable as major variance partitioning variable.
-Videos are obtained through 3D representation of PCoA (capscale) based on bray-curtis distance. Indicated black dots represent the centroids of each variable and are indicated as well in the videos (Compartment, Biome, Country).
-Turquoise dots represent the samples, and colored dots represent the OTUs, respectively: BLUE (video1) - Bacteria; ORANGE (video2) - Fungi; MAGENTA: (video3) Oomycetes; GREEN:(video4) Overlooked microbial eukaryotes.
+Compartment is the most discriminat variable in Principal Cooordinate Analysis (PCoA). 
+Biome and Country effect are not clearly identifiable as major variance partitioning variable.
+Videos are obtained through 3D representation of PCoA (capscale) based on bray-curtis distance. 
+Indicated black dots represent the centroids of each variable and are indicated as well in the videos (Compartment, Biome, Country).
+Turquoise dots represent the samples, and colored dots represent the OTUs, respectively: 
+BLUE (video1) - Bacteria; 
+ORANGE (video2) - Fungi; 
+MAGENTA: (video3) Oomycetes; 
+GREEN:(video4) Overlooked microbial eukaryotes.
